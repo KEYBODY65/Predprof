@@ -1,15 +1,18 @@
 with open('space.csv', 'r', encoding='UTF-8') as file_input:
+    """Чтение файла"""
     data = {}
     for elem in file_input.readlines()[1:]:
-        process = elem.split(',')
+        process = elem.split(',')# разбиение стороки на элементы по запятым
         if '0 0' in process[2]:
             koords = process[-1]
-            data.setdefault(process[0], [process[1], process[-1].rstrip()])
+            data.setdefault(process[0], [process[1], process[-1].rstrip()])# добавление данных в словарь data
 
 with open('space_new.txt', 'w', encoding='UTF-8') as file_write:
+    """Запись данных в файл"""
     for k, v in data.items():
         s_x = 0
         s_y = 0
+        """Преобразаония чисел"""
         if '-' == v[-1][0]:
             x = int(v[-1][1]) * -1
             s_x = len(v[0]) - x
