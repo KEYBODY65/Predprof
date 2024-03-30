@@ -37,7 +37,6 @@ for g in range(len(data) - 1, 1, -1):
     m = data[g][-1]
     if m < maximum:
         maximum = m
-        print(m)
         b.append(data[g][0])
 
 print(b[:3])
